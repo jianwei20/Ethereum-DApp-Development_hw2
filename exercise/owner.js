@@ -9,8 +9,11 @@ const address = fs.readFileSync('./address.txt').toString()
 let bank = new web3.eth.Contract(abi, address)
 
 web3.eth.getAccounts().then(function (accounts) {
-
+    
     // get contract owner
-    // your code
-
-})
+    // get contract owner
+    bank.methods.getOwner().call({
+        from: accounts[0]
+    })
+    .then((owner) => { console.log(owner) });
+});

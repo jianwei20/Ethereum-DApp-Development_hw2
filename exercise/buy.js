@@ -12,5 +12,11 @@ web3.eth.getAccounts().then(function (accounts) {
 
     // accounts[1] buy 1 * 10**18 coins
     // your code
-
+bank.methods.buy(1).send({
+        from: accounts[0],
+        gas: 2000000
+    })
+        .on('receipt', console.log)
+        .on('error', console.error)
+        
 })

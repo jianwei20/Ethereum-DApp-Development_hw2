@@ -12,5 +12,12 @@ web3.eth.getAccounts().then(function (accounts) {
 
     // accounts[0] mint 3 * 10**18 coins
     // your code
+ bank.methods.mint(3).send({
+        from: accounts[0],
+        gas: 1000000
+    })
+    .on('receipt', console.log)
+    .on('error', console.error)
+        
 
 })
